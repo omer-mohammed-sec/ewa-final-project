@@ -3,7 +3,8 @@
 **Course Code & Name:** EWA408510 – E-Commerce and Web Application  
 **Institution:** University of Lay Adventists of Kigali (UNILAK)  
 **Academic Year:** 2025-2026  
-**Student Name:** Omer Stksh  
+**Student Name:** Omer Mohammed Abdelhadi Mohammed
+**Reg Num:** 30027/2025 
 
 ---
 
