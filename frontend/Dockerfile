@@ -7,13 +7,6 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 
-# Copy Prisma schema and config
-COPY prisma ./prisma
-COPY prisma.config.ts ./
-
-# Generate Prisma Client
-RUN npx prisma generate
-
 # Copy source code and build app
 COPY . .
 RUN npm run build
@@ -34,9 +27,6 @@ RUN apk add --no-cache curl
 COPY --from=builder /app/package.json /app/package-lock.json ./
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/prisma ./prisma
-COPY --from=builder /app/prisma.config.ts ./
-COPY --from=builder /app/src/generated ./src/generated
 
 RUN npm ci --only=production
 

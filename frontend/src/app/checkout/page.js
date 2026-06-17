@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useCart } from '../../context/CartContext';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
 export default function CheckoutPage() {
   const router = useRouter();
   const { cart, getCartSubtotal, getCartTax, getCartTotal, clearCart } = useCart();
@@ -84,7 +86,7 @@ export default function CheckoutPage() {
                        paymentMethod === 'CARD' ? 'CREDIT CARD' : 'PAYPAL',
       };
 
-      const res = await fetch('/api/orders', {
+      const res = await fetch(`${API_URL}/orders`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData),

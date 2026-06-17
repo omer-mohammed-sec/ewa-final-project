@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
 export default function DashboardPage() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -26,7 +28,7 @@ export default function DashboardPage() {
 
   const fetchOrders = async () => {
     try {
-      const res = await fetch('/api/orders');
+      const res = await fetch(`${API_URL}/orders`);
       const data = await res.json();
       setOrders(data);
     } catch (e) {
@@ -38,7 +40,7 @@ export default function DashboardPage() {
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      const res = await fetch('/api/orders', {
+      const res = await fetch(`${API_URL}/orders`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ orderId, status: newStatus }),

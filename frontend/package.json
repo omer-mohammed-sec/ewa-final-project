@@ -4,24 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
-    "@prisma/adapter-pg": "^7.8.0",
-    "@prisma/client": "^7.8.0",
     "next": "16.2.7",
-    "pg": "^8.21.0",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
     "eslint": "^9",
-    "eslint-config-next": "16.2.7",
-    "prisma": "^7.8.0"
-  },
-  "prisma": {
-    "seed": "node prisma/seed.js"
+    "eslint-config-next": "16.2.7"
   }
 }
